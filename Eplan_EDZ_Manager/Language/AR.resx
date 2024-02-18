@@ -118,60 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Btn_EdzExport" xml:space="preserve">
-    <value>Dışa aktar (.edz)</value>
+    <value>تصدير (.edz)</value>
   </data>
   <data name="Btn_Listele" xml:space="preserve">
-    <value>Listele</value>
+    <value>قائمة</value>
   </data>
   <data name="Btn_SourceFile" xml:space="preserve">
-    <value>İçe aktar (.edz)</value>
+    <value>استيراد (.edz)</value>
   </data>
   <data name="DosyaBulundu" xml:space="preserve">
-    <value>Dosya bulundu.</value>
+    <value>تم العثور على الملف</value>
   </data>
   <data name="gBox_export" xml:space="preserve">
-    <value>Dışa Aktar</value>
+    <value>تصدير</value>
   </data>
   <data name="gBox_import" xml:space="preserve">
-    <value>İçe Aktar</value>
+    <value>استيراد</value>
   </data>
   <data name="Klasor" xml:space="preserve">
-    <value>Klasör</value>
+    <value>مجلد</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Dil</value>
+    <value>لغة</value>
   </data>
   <data name="Lbl_DownloadInfo" xml:space="preserve">
-    <value>Dosya Aktarılıyor</value>
+    <value>جاري تحميل الملف</value>
   </data>
   <data name="Lbl_Find" xml:space="preserve">
-    <value>Dosya bulundu.</value>
+    <value>لم يتم العثور على ملفات.</value>
   </data>
   <data name="Lbl_Marka" xml:space="preserve">
-    <value>Marka:</value>
+    <value>العلامة التجارية:</value>
   </data>
   <data name="Lbl_SBoyut" xml:space="preserve">
-    <value>Sıkıştırılmış Boyut:</value>
+    <value>حجم مضغوط:</value>
   </data>
   <data name="Lbl_ToplamBoyut" xml:space="preserve">
-    <value>Toplam Boyut:</value>
+    <value>الحجم الكلي:</value>
   </data>
   <data name="Lbl_Type" xml:space="preserve">
-    <value>Kod:</value>
+    <value>كود:</value>
   </data>
   <data name="msg1_DosyaAktarim" xml:space="preserve">
-    <value>Dosya aktarımı tamamlandı.</value>
+    <value>اكتمل نقل الملف.</value>
   </data>
   <data name="msg1_DosyaAktarim_Baslik" xml:space="preserve">
-    <value>Başarılı</value>
+    <value>ناجح</value>
   </data>
   <data name="msg2_DosyaAktarim" xml:space="preserve">
-    <value>dosyası bulunamadı.</value>
+    <value>لم يتم العثور على الملف.</value>
   </data>
   <data name="msg2_DosyaAktarim_Baslik" xml:space="preserve">
-    <value>Hata</value>
+    <value>خطأ</value>
   </data>
   <data name="msgMarka" xml:space="preserve">
-    <value>Lütfen marka bilgisi girin.</value>
+    <value>الرجاء إدخال معلومات العلامة التجارية.</value>
   </data>
 </root>

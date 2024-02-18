@@ -31,33 +31,40 @@ namespace Eplan_EDZ_Manager
 
         private async void Btn_SourceFile_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                string folderPath = folderBrowserDialog.SelectedPath;
-                List<string> edzFiles = FindEdzFiles(folderPath);
-                treeView1.Nodes.Clear();
-
-                int progressBarSayac = 0;
-                progressBar1.Minimum = 0;
-                progressBar1.Maximum = edzFiles.Count;
-                progressBar1.Value = 0;
-
-
-                totalSize = 0;
-                totalCompressedSize = 0;
-
-
-                foreach (var edzFile in edzFiles)
+                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Asenkron işlemi başlat
-                    await ListEdzFileContentsAsync(@"C:\Program Files\7-Zip\7z.exe", edzFile);
+                    string folderPath = folderBrowserDialog.SelectedPath;
+                    List<string> edzFiles = FindEdzFiles(folderPath);
+                    treeView1.Nodes.Clear();
 
-                    this.BeginInvoke(new Action(() =>
+                    int progressBarSayac = 0;
+                    progressBar1.Minimum = 0;
+                    progressBar1.Maximum = edzFiles.Count;
+                    progressBar1.Value = 0;
+
+
+                    totalSize = 0;
+                    totalCompressedSize = 0;
+
+
+                    foreach (var edzFile in edzFiles)
                     {
-                        progressBar1.Value = ++progressBarSayac;
-                    }));
+                        // Asenkron işlemi başlat
+                        await ListEdzFileContentsAsync(@"C:\Program Files\7-Zip\7z.exe", edzFile);
+
+                        this.BeginInvoke(new Action(() =>
+                        {
+                            progressBar1.Value = ++progressBarSayac;
+                        }));
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -181,7 +188,7 @@ namespace Eplan_EDZ_Manager
                 {
                     this.Invoke(new Action(() =>
                     {
-                        MessageBox.Show("Bir hata oluştu: " + ex.Message);
+                        MessageBox.Show(ex.Message, LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }));
                 }
             });
@@ -200,6 +207,8 @@ namespace Eplan_EDZ_Manager
             }
             return $"{len:0.##} {sizes[order]}";
         }
+
+
         private List<string> FindEdzFiles(string folderPath)
         {
             return Directory.GetFiles(folderPath, "*.edz", SearchOption.AllDirectories).ToList();
@@ -208,86 +217,97 @@ namespace Eplan_EDZ_Manager
         #endregion
 
 
-
-
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             string userLanguage = Properties.Settings.Default.Language;
             //string userLanguagde = TR.Btn_EdzExport;
 
             comboBoxLanguages.SelectedItem = userLanguage;
-            ApplyLanguageChange(userLanguage);
+            UpdateUI(userLanguage);
         }
 
         private Dictionary<string, List<string>> SearchFilesByBrandAndType(string brand, string type)
         {
-            var results = new Dictionary<string, List<string>>();
-            string orgDataPath = Path.Combine(Application.StartupPath, "Data\\OrgData");
-            var txtFiles = Directory.GetFiles(orgDataPath, "*.txt");
-
-            foreach (var filePath in txtFiles)
+            try
             {
-                string fileName = Path.GetFileNameWithoutExtension(filePath);
-                if (fileName.ToUpper().Contains(brand.ToUpper()))
-                {
-                    var lines = File.ReadAllLines(filePath);
+                var results = new Dictionary<string, List<string>>();
+                string orgDataPath = Path.Combine(Application.StartupPath, "Data\\OrgData");
+                var txtFiles = Directory.GetFiles(orgDataPath, "*.txt");
 
-                    // İlk satırı yoksayarak geri kalan satırları işle
-                    var matchedLines = new List<string>();
-                    for (int i = 1; i < lines.Length; i++) // i=1 ile başlayarak ilk satırı atlıyoruz
+                foreach (var filePath in txtFiles)
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(filePath);
+                    if (fileName.ToUpper().Contains(brand.ToUpper()))
                     {
-                        if (lines[i].ToUpper().Contains(type.ToUpper()))
+                        var lines = File.ReadAllLines(filePath);
+
+                        // İlk satırı yoksayarak geri kalan satırları işle
+                        var matchedLines = new List<string>();
+                        for (int i = 1; i < lines.Length; i++) // i=1 ile başlayarak ilk satırı atlıyoruz
                         {
-                            matchedLines.Add(lines[i]);
+                            if (lines[i].ToUpper().Contains(type.ToUpper()))
+                            {
+                                matchedLines.Add(lines[i]);
+                            }
+                        }
+
+                        if (matchedLines.Count > 0)
+                        {
+                            results.Add(fileName, matchedLines);
+                        }
+                    }
+                }
+
+                return results;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            return null;
+        }
+
+        int Klasör = 0;
+        int Dosya = 0;
+        private void Btn_Listele_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var brand = textBox1.Text.Trim();
+                var type = textBox2.Text.Trim();
+
+                
+
+                if (!string.IsNullOrWhiteSpace(brand))
+                {
+                    var results = SearchFilesByBrandAndType(brand, type);
+                    treeView2.Nodes.Clear(); // TreeView temizlenir
+
+                    foreach (var result in results)
+                    {
+                        // Her dosya adı için bir ana düğüm oluştur
+                        TreeNode fileNode = new TreeNode(result.Key);
+                        treeView2.Nodes.Add(fileNode);
+                        Klasör++;
+
+                        // Eşleşen her satır için çocuk düğümler oluştur
+                        foreach (var line in result.Value)
+                        {
+                            Dosya++;
+                            fileNode.Nodes.Add(new TreeNode(line));
                         }
                     }
 
-                    if (matchedLines.Count > 0)
-                    {
-                        results.Add(fileName, matchedLines);
-                    }
+                    Lbl_Find.Text = $"{Klasör} {LanguageConvert("Klasor")},  {Dosya} {LanguageConvert("DosyaBulundu")}";
+                }
+                else
+                {//msgMarka
+                    MessageBox.Show($"{LanguageConvert("msgMarka")}");
                 }
             }
-
-            return results;
-        }
-
-
-        private void Btn_Listele_Click(object sender, EventArgs e)
-        {
-            var brand = textBox1.Text.Trim();
-            var type = textBox2.Text.Trim();
-
-            int Klasör = 0;
-            int Dosya = 0;
-
-            if (!string.IsNullOrWhiteSpace(brand))
+            catch (Exception ex)
             {
-                var results = SearchFilesByBrandAndType(brand, type);
-                treeView2.Nodes.Clear(); // TreeView temizlenir
-
-                foreach (var result in results)
-                {
-                    // Her dosya adı için bir ana düğüm oluştur
-                    TreeNode fileNode = new TreeNode(result.Key);
-                    treeView2.Nodes.Add(fileNode);
-                    Klasör++;
-
-                    // Eşleşen her satır için çocuk düğümler oluştur
-                    foreach (var line in result.Value)
-                    {
-                        Dosya++;
-                        fileNode.Nodes.Add(new TreeNode(line));
-                    }
-                }
-
-                Lbl_Find.Text = $"{Klasör} {LanguageConvert("Klasör")},  {Dosya} {Klasör} {LanguageConvert("DosyaBulundu")}";
-            }
-            else
-            {//msgMarka
-                MessageBox.Show($"{LanguageConvert("msgMarka")}");
+                MessageBox.Show(ex.Message, LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -295,51 +315,58 @@ namespace Eplan_EDZ_Manager
 
         private async void Btn_EdzExport_Click(object sender, EventArgs e)
         {
-            // Dosyanın var olup olmadığını kontrol et
-            string firstLine = File.ReadLines(Path.Combine(Application.StartupPath, "Data\\OrgData", ExportData)).FirstOrDefault();
-
-            if (File.Exists(firstLine))
+            try
             {
-                // Klasör seçim diyalogunu aç
-                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                // Dosyanın var olup olmadığını kontrol et
+                string firstLine = File.ReadLines(Path.Combine(Application.StartupPath, "Data\\OrgData", ExportData)).FirstOrDefault();
+
+                if (File.Exists(firstLine))
                 {
-                    if (folderDialog.ShowDialog() == DialogResult.OK)
+                    // Klasör seçim diyalogunu aç
+                    using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
                     {
-                        // Seçilen klasörün yolunu al
-                        string selectedFolderPath = folderDialog.SelectedPath;
-
-                        // Hedef dosya yolu (hedef klasör yolu ile dosyanın adını birleştirerek)
-                        string destinationFilePath = Path.Combine(selectedFolderPath, Path.GetFileName(firstLine));
-
-                        // İlerleme göstergesi için bir Progress<T> nesnesi oluştur
-                        var progressIndicator = new Progress<int>(percent =>
+                        if (folderDialog.ShowDialog() == DialogResult.OK)
                         {
-                            // Güvenli bir şekilde UI thread'inde ProgressBar'ı güncelle
-                            progressBar2.Invoke(new Action(() =>
+                            // Seçilen klasörün yolunu al
+                            string selectedFolderPath = folderDialog.SelectedPath;
+
+                            // Hedef dosya yolu (hedef klasör yolu ile dosyanın adını birleştirerek)
+                            string destinationFilePath = Path.Combine(selectedFolderPath, Path.GetFileName(firstLine));
+
+                            // İlerleme göstergesi için bir Progress<T> nesnesi oluştur
+                            var progressIndicator = new Progress<int>(percent =>
                             {
-                                progressBar2.Value = percent;
-                            }));
-                        });
-                        pictureBox1.Visible = true;
-                        Lbl_DownloadInfo.Visible = true;
-                        await Task.Delay(100);
+                                // Güvenli bir şekilde UI thread'inde ProgressBar'ı güncelle
+                                progressBar2.Invoke(new Action(() =>
+                                {
+                                    progressBar2.Value = percent;
+                                }));
+                            });
+                            pictureBox1.Visible = true;
+                            Lbl_DownloadInfo.Visible = true;
+                            await Task.Delay(100);
 
 
-                        // Asenkron dosya kopyalama işlemini başlat
-                        await CopyFileAsync(firstLine, destinationFilePath, progressIndicator);
-                        await Task.Delay(1000);
-                        pictureBox1.Visible = false;
-                        Lbl_DownloadInfo.Visible = false;
-                        //msg1DosyaAktarim
-                        MessageBox.Show($"{LanguageConvert("msg1_DosyaAktarim")}\n>> {destinationFilePath}", $"{LanguageConvert("msg1_DosyaAktarim_Baslik")}\n>> {destinationFilePath}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Asenkron dosya kopyalama işlemini başlat
+                            await CopyFileAsync(firstLine, destinationFilePath, progressIndicator);
+                            await Task.Delay(1000);
+                            pictureBox1.Visible = false;
+                            Lbl_DownloadInfo.Visible = false;
+                            //msg1DosyaAktarim
+                            MessageBox.Show($"{LanguageConvert("msg1_DosyaAktarim")}\n>> {destinationFilePath}", $"{LanguageConvert("msg1_DosyaAktarim_Baslik")}\n>> {destinationFilePath}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                 }
+                else
+                {
+                    //msg2DosyaAktarim
+                    // Dosya bulunamazsa hata mesajı göster
+                    MessageBox.Show($"{ExportData} {LanguageConvert("msg2_DosyaAktarim")}", $"{LanguageConvert("msg2_DosyaAktarim_Baslik")}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //msg2DosyaAktarim
-                // Dosya bulunamazsa hata mesajı göster
-                MessageBox.Show($"{ExportData} {LanguageConvert("msg2_DosyaAktarim")}", $"{LanguageConvert("msg2_DosyaAktarim_Baslik")}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -356,24 +383,31 @@ namespace Eplan_EDZ_Manager
         /// <returns>Task, asenkron işlemin tamamlanmasını temsil eder.</returns>
         private async Task CopyFileAsync(string kaynakYolu, string hedefDosyaYolu, IProgress<int> progress)
         {
-            const int bufferSize = 1024 * 1024; // Örneğin, 1MB tampon boyutu.
-            byte[] buffer = new byte[bufferSize];
-            int bytesRead;
-            long totalBytesRead = 0;
-
-            using (var sourceStream = new FileStream(kaynakYolu, FileMode.Open, FileAccess.Read))
+            try
             {
-                long totalBytes = sourceStream.Length;
-                using (var destinationStream = new FileStream(hedefDosyaYolu, FileMode.Create, FileAccess.Write))
+                const int bufferSize = 1024 * 1024; // Örneğin, 1MB tampon boyutu.
+                byte[] buffer = new byte[bufferSize];
+                int bytesRead;
+                long totalBytesRead = 0;
+
+                using (var sourceStream = new FileStream(kaynakYolu, FileMode.Open, FileAccess.Read))
                 {
-                    while ((bytesRead = await sourceStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                    long totalBytes = sourceStream.Length;
+                    using (var destinationStream = new FileStream(hedefDosyaYolu, FileMode.Create, FileAccess.Write))
                     {
-                        await destinationStream.WriteAsync(buffer, 0, bytesRead);
-                        totalBytesRead += bytesRead;
-                        int percentComplete = (int)(totalBytesRead * 100 / totalBytes);
-                        progress.Report(percentComplete);
+                        while ((bytesRead = await sourceStream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                        {
+                            await destinationStream.WriteAsync(buffer, 0, bytesRead);
+                            totalBytesRead += bytesRead;
+                            int percentComplete = (int)(totalBytesRead * 100 / totalBytes);
+                            progress.Report(percentComplete);
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -408,26 +442,28 @@ namespace Eplan_EDZ_Manager
 
         private void comboBoxLanguages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedLanguage = comboBoxLanguages.SelectedItem.ToString();
-            // Ayarı kaydet
-            Properties.Settings.Default.Language = selectedLanguage;
-            Properties.Settings.Default.Save();
+            try
+            {
+                string selectedLanguage = comboBoxLanguages.SelectedItem.ToString();
+                // Ayarı kaydet
+                Properties.Settings.Default.Language = selectedLanguage;
+                Properties.Settings.Default.Save();
 
 
-            resourceManager = new ResourceManager($"Eplan_EDZ_Manager.Language.{selectedLanguage}", typeof(Form1).Assembly);
+                resourceManager = new ResourceManager($"Eplan_EDZ_Manager.Language.{selectedLanguage}", typeof(Form1).Assembly);
 
-            cultureInfo = new CultureInfo(selectedLanguage);
-            // Dil değişikliğini uygula
-            ChangeLanguage(selectedLanguage);
+                cultureInfo = new CultureInfo(selectedLanguage);
+                // Dil değişikliğini uygula
+                ChangeLanguage(selectedLanguage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
 
-        private void ApplyLanguageChange(string language)
-        {
-            // Dil değişikliği mantığınız burada olacak
-            // Örneğin, kaynak dosyalarınızdan metinleri yükleyip UI kontrollerinize atayabilirsiniz.
-        }
 
         private void ChangeLanguage(string lang)
         {
@@ -455,7 +491,7 @@ namespace Eplan_EDZ_Manager
             gBox_export.Text = LanguageConvert("gBox_export");
             gBox_import.Text = LanguageConvert("gBox_import");
             Language.Text = LanguageConvert("Language");
-            Lbl_Find.Text = LanguageConvert("Lbl_Find");
+            Lbl_Find.Text = $"{Klasör} {LanguageConvert("Klasor")},  {Dosya} {LanguageConvert("DosyaBulundu")}"; 
             Lbl_Marka.Text = LanguageConvert("Lbl_Marka");
             Lbl_SBoyut.Text = LanguageConvert("Lbl_SBoyut") + SSize;
             Lbl_ToplamBoyut.Text = LanguageConvert("Lbl_ToplamBoyut") + TSize;

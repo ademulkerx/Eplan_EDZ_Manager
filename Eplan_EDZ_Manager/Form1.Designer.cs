@@ -88,7 +88,7 @@
             this.Btn_Listele.Location = new System.Drawing.Point(68, 92);
             this.Btn_Listele.Name = "Btn_Listele";
             this.Btn_Listele.Size = new System.Drawing.Size(153, 31);
-            this.Btn_Listele.TabIndex = 1;
+            this.Btn_Listele.TabIndex = 3;
             this.Btn_Listele.Text = "Listele";
             this.Btn_Listele.UseVisualStyleBackColor = true;
             this.Btn_Listele.Click += new System.EventHandler(this.Btn_Listele_Click);
@@ -99,7 +99,7 @@
             this.textBox1.Location = new System.Drawing.Point(68, 24);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(362, 26);
-            this.textBox1.TabIndex = 6;
+            this.textBox1.TabIndex = 1;
             // 
             // gBox_export
             // 
@@ -173,7 +173,7 @@
             this.Btn_EdzExport.Location = new System.Drawing.Point(443, 102);
             this.Btn_EdzExport.Name = "Btn_EdzExport";
             this.Btn_EdzExport.Size = new System.Drawing.Size(145, 43);
-            this.Btn_EdzExport.TabIndex = 6;
+            this.Btn_EdzExport.TabIndex = 4;
             this.Btn_EdzExport.Text = "Dışa aktar (.edz)";
             this.Btn_EdzExport.UseVisualStyleBackColor = true;
             this.Btn_EdzExport.Click += new System.EventHandler(this.Btn_EdzExport_Click);
@@ -194,7 +194,7 @@
             this.treeView2.Location = new System.Drawing.Point(6, 150);
             this.treeView2.Name = "treeView2";
             this.treeView2.Size = new System.Drawing.Size(582, 339);
-            this.treeView2.TabIndex = 0;
+            this.treeView2.TabIndex = 5;
             this.treeView2.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView2_NodeMouseClick);
             // 
             // Lbl_Marka
@@ -214,7 +214,7 @@
             this.textBox2.Location = new System.Drawing.Point(68, 60);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(362, 26);
-            this.textBox2.TabIndex = 6;
+            this.textBox2.TabIndex = 2;
             // 
             // gBox_import
             // 
@@ -261,7 +261,11 @@
             this.comboBoxLanguages.FormattingEnabled = true;
             this.comboBoxLanguages.Items.AddRange(new object[] {
             "EN",
-            "TR"});
+            "TR",
+            "DE",
+            "ZH",
+            "AR",
+            "RU"});
             this.comboBoxLanguages.Location = new System.Drawing.Point(86, 527);
             this.comboBoxLanguages.Name = "comboBoxLanguages";
             this.comboBoxLanguages.Size = new System.Drawing.Size(121, 20);

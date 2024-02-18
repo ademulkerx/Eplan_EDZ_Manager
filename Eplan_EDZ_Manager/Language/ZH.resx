@@ -118,60 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Btn_EdzExport" xml:space="preserve">
-    <value>Dışa aktar (.edz)</value>
+    <value>导出 (.edz)</value>
   </data>
   <data name="Btn_Listele" xml:space="preserve">
-    <value>Listele</value>
+    <value>列表</value>
   </data>
   <data name="Btn_SourceFile" xml:space="preserve">
-    <value>İçe aktar (.edz)</value>
+    <value>导入 (.edz)</value>
   </data>
   <data name="DosyaBulundu" xml:space="preserve">
-    <value>Dosya bulundu.</value>
+    <value>文件找到了</value>
   </data>
   <data name="gBox_export" xml:space="preserve">
-    <value>Dışa Aktar</value>
+    <value>导出</value>
   </data>
   <data name="gBox_import" xml:space="preserve">
-    <value>İçe Aktar</value>
+    <value>导入</value>
   </data>
   <data name="Klasor" xml:space="preserve">
-    <value>Klasör</value>
+    <value>文件夹</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Dil</value>
+    <value>语言</value>
   </data>
   <data name="Lbl_DownloadInfo" xml:space="preserve">
-    <value>Dosya Aktarılıyor</value>
+    <value>文件正在传输</value>
   </data>
   <data name="Lbl_Find" xml:space="preserve">
-    <value>Dosya bulundu.</value>
+    <value>找到0个文件。</value>
   </data>
   <data name="Lbl_Marka" xml:space="preserve">
-    <value>Marka:</value>
+    <value>品牌：</value>
   </data>
   <data name="Lbl_SBoyut" xml:space="preserve">
-    <value>Sıkıştırılmış Boyut:</value>
+    <value>压缩大小：</value>
   </data>
   <data name="Lbl_ToplamBoyut" xml:space="preserve">
-    <value>Toplam Boyut:</value>
+    <value>总大小：</value>
   </data>
   <data name="Lbl_Type" xml:space="preserve">
-    <value>Kod:</value>
+    <value>代码：</value>
   </data>
   <data name="msg1_DosyaAktarim" xml:space="preserve">
-    <value>Dosya aktarımı tamamlandı.</value>
+    <value>文件传输完成。</value>
   </data>
   <data name="msg1_DosyaAktarim_Baslik" xml:space="preserve">
-    <value>Başarılı</value>
+    <value>成功</value>
   </data>
   <data name="msg2_DosyaAktarim" xml:space="preserve">
-    <value>dosyası bulunamadı.</value>
+    <value>文件未找到。</value>
   </data>
   <data name="msg2_DosyaAktarim_Baslik" xml:space="preserve">
-    <value>Hata</value>
+    <value>错误</value>
   </data>
   <data name="msgMarka" xml:space="preserve">
-    <value>Lütfen marka bilgisi girin.</value>
+    <value>请输入品牌信息。</value>
   </data>
 </root>

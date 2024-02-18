@@ -118,60 +118,60 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Btn_EdzExport" xml:space="preserve">
-    <value>Dışa aktar (.edz)</value>
+    <value>Экспорт (.edz)</value>
   </data>
   <data name="Btn_Listele" xml:space="preserve">
-    <value>Listele</value>
+    <value>Список</value>
   </data>
   <data name="Btn_SourceFile" xml:space="preserve">
-    <value>İçe aktar (.edz)</value>
+    <value>Импорт (.edz)</value>
   </data>
   <data name="DosyaBulundu" xml:space="preserve">
-    <value>Dosya bulundu.</value>
+    <value>Файл найден</value>
   </data>
   <data name="gBox_export" xml:space="preserve">
-    <value>Dışa Aktar</value>
+    <value>Экспорт</value>
   </data>
   <data name="gBox_import" xml:space="preserve">
-    <value>İçe Aktar</value>
+    <value>Импорт</value>
   </data>
   <data name="Klasor" xml:space="preserve">
-    <value>Klasör</value>
+    <value>Папка</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Dil</value>
+    <value>Язык</value>
   </data>
   <data name="Lbl_DownloadInfo" xml:space="preserve">
-    <value>Dosya Aktarılıyor</value>
+    <value>Файл загружается</value>
   </data>
   <data name="Lbl_Find" xml:space="preserve">
-    <value>Dosya bulundu.</value>
+    <value>Файлы не найдены.</value>
   </data>
   <data name="Lbl_Marka" xml:space="preserve">
-    <value>Marka:</value>
+    <value>Марка:</value>
   </data>
   <data name="Lbl_SBoyut" xml:space="preserve">
-    <value>Sıkıştırılmış Boyut:</value>
+    <value>Сжатый размер:</value>
   </data>
   <data name="Lbl_ToplamBoyut" xml:space="preserve">
-    <value>Toplam Boyut:</value>
+    <value>Общий размер:</value>
   </data>
   <data name="Lbl_Type" xml:space="preserve">
-    <value>Kod:</value>
+    <value>Код:</value>
   </data>
   <data name="msg1_DosyaAktarim" xml:space="preserve">
-    <value>Dosya aktarımı tamamlandı.</value>
+    <value>Передача файла завершена.</value>
   </data>
   <data name="msg1_DosyaAktarim_Baslik" xml:space="preserve">
-    <value>Başarılı</value>
+    <value>Успешно</value>
   </data>
   <data name="msg2_DosyaAktarim" xml:space="preserve">
-    <value>dosyası bulunamadı.</value>
+    <value>Файл не найден.</value>
   </data>
   <data name="msg2_DosyaAktarim_Baslik" xml:space="preserve">
-    <value>Hata</value>
+    <value>Ошибка</value>
   </data>
   <data name="msgMarka" xml:space="preserve">
-    <value>Lütfen marka bilgisi girin.</value>
+    <value>Пожалуйста, введите информацию о марке.</value>
   </data>
 </root>

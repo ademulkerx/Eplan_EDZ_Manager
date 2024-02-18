@@ -22,24 +22,24 @@ namespace Eplan_EDZ_Manager.Language {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class EN {
+    internal class DE {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal EN() {
+        internal DE() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Eplan_EDZ_Manager.Language.EN", typeof(EN).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Eplan_EDZ_Manager.Language.DE", typeof(DE).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Eplan_EDZ_Manager.Language {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,36 +61,36 @@ namespace Eplan_EDZ_Manager.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Export (.edz).
+        ///   Looks up a localized string similar to Exportieren (.edz).
         /// </summary>
-        public static string Btn_EdzExport {
+        internal static string Btn_EdzExport {
             get {
                 return ResourceManager.GetString("Btn_EdzExport", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to List.
+        ///   Looks up a localized string similar to Auflisten.
         /// </summary>
-        public static string Btn_Listele {
+        internal static string Btn_Listele {
             get {
                 return ResourceManager.GetString("Btn_Listele", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Import (.edz).
+        ///   Looks up a localized string similar to Importieren (.edz).
         /// </summary>
-        public static string Btn_SourceFile {
+        internal static string Btn_SourceFile {
             get {
                 return ResourceManager.GetString("Btn_SourceFile", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File found.
+        ///   Looks up a localized string similar to Datei gefunden.
         /// </summary>
-        public static string DosyaBulundu {
+        internal static string DosyaBulundu {
             get {
                 return ResourceManager.GetString("DosyaBulundu", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Eplan_EDZ_Manager.Language {
         /// <summary>
         ///   Looks up a localized string similar to Export.
         /// </summary>
-        public static string gBox_export {
+        internal static string gBox_export {
             get {
                 return ResourceManager.GetString("gBox_export", resourceCulture);
             }
@@ -108,70 +108,70 @@ namespace Eplan_EDZ_Manager.Language {
         /// <summary>
         ///   Looks up a localized string similar to Import.
         /// </summary>
-        public static string gBox_import {
+        internal static string gBox_import {
             get {
                 return ResourceManager.GetString("gBox_import", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Folder.
+        ///   Looks up a localized string similar to Ordner.
         /// </summary>
-        public static string Klasor {
+        internal static string Klasor {
             get {
                 return ResourceManager.GetString("Klasor", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language.
+        ///   Looks up a localized string similar to Sprache.
         /// </summary>
-        public static string Language {
+        internal static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Transferring File.
+        ///   Looks up a localized string similar to Datei wird übertragen.
         /// </summary>
-        public static string Lbl_DownloadInfo {
+        internal static string Lbl_DownloadInfo {
             get {
                 return ResourceManager.GetString("Lbl_DownloadInfo", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0 Files found..
+        ///   Looks up a localized string similar to 0 Dateien gefunden..
         /// </summary>
-        public static string Lbl_Find {
+        internal static string Lbl_Find {
             get {
                 return ResourceManager.GetString("Lbl_Find", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Brand:.
+        ///   Looks up a localized string similar to Marke:.
         /// </summary>
-        public static string Lbl_Marka {
+        internal static string Lbl_Marka {
             get {
                 return ResourceManager.GetString("Lbl_Marka", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Compressed Size:.
+        ///   Looks up a localized string similar to Komprimierte Größe:.
         /// </summary>
-        public static string Lbl_SBoyut {
+        internal static string Lbl_SBoyut {
             get {
                 return ResourceManager.GetString("Lbl_SBoyut", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total Size:.
+        ///   Looks up a localized string similar to Gesamtgröße:.
         /// </summary>
-        public static string Lbl_ToplamBoyut {
+        internal static string Lbl_ToplamBoyut {
             get {
                 return ResourceManager.GetString("Lbl_ToplamBoyut", resourceCulture);
             }
@@ -180,52 +180,52 @@ namespace Eplan_EDZ_Manager.Language {
         /// <summary>
         ///   Looks up a localized string similar to Code:.
         /// </summary>
-        public static string Lbl_Type {
+        internal static string Lbl_Type {
             get {
                 return ResourceManager.GetString("Lbl_Type", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File transfer completed..
+        ///   Looks up a localized string similar to Dateiübertragung abgeschlossen..
         /// </summary>
-        public static string msg1_DosyaAktarim {
+        internal static string msg1_DosyaAktarim {
             get {
                 return ResourceManager.GetString("msg1_DosyaAktarim", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Successful.
+        ///   Looks up a localized string similar to Erfolgreich.
         /// </summary>
-        public static string msg1_DosyaAktarim_Baslik {
+        internal static string msg1_DosyaAktarim_Baslik {
             get {
                 return ResourceManager.GetString("msg1_DosyaAktarim_Baslik", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to file could not be found..
+        ///   Looks up a localized string similar to Datei wurde nicht gefunden..
         /// </summary>
-        public static string msg2_DosyaAktarim {
+        internal static string msg2_DosyaAktarim {
             get {
                 return ResourceManager.GetString("msg2_DosyaAktarim", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error.
+        ///   Looks up a localized string similar to Fehler.
         /// </summary>
-        public static string msg2_DosyaAktarim_Baslik {
+        internal static string msg2_DosyaAktarim_Baslik {
             get {
                 return ResourceManager.GetString("msg2_DosyaAktarim_Baslik", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter brand information..
+        ///   Looks up a localized string similar to Bitte geben Sie die Markeninformation ein..
         /// </summary>
-        public static string msgMarka {
+        internal static string msgMarka {
             get {
                 return ResourceManager.GetString("msgMarka", resourceCulture);
             }

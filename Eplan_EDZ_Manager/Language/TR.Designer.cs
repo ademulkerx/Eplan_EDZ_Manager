@@ -88,6 +88,15 @@ namespace Eplan_EDZ_Manager.Language {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dosya bulundu..
+        /// </summary>
+        public static string DosyaBulundu {
+            get {
+                return ResourceManager.GetString("DosyaBulundu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Dışa Aktar.
         /// </summary>
         public static string gBox_export {
@@ -102,6 +111,15 @@ namespace Eplan_EDZ_Manager.Language {
         public static string gBox_import {
             get {
                 return ResourceManager.GetString("gBox_import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Klasör.
+        /// </summary>
+        public static string Klasor {
+            get {
+                return ResourceManager.GetString("Klasor", resourceCulture);
             }
         }
         
@@ -124,7 +142,7 @@ namespace Eplan_EDZ_Manager.Language {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0 Dosya bulundu..
+        ///   Looks up a localized string similar to Dosya bulundu..
         /// </summary>
         public static string Lbl_Find {
             get {
