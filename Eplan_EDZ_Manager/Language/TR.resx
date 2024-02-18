@@ -117,13 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>184, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
-  </metadata>
+  <data name="Btn_EdzExport" xml:space="preserve">
+    <value>Dışa aktar (.edz)</value>
+  </data>
+  <data name="Btn_Listele" xml:space="preserve">
+    <value>Listele</value>
+  </data>
+  <data name="Btn_SourceFile" xml:space="preserve">
+    <value>İçe aktar (.edz)</value>
+  </data>
+  <data name="gBox_export" xml:space="preserve">
+    <value>Dışa Aktar</value>
+  </data>
+  <data name="gBox_import" xml:space="preserve">
+    <value>İçe Aktar</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Dil</value>
+  </data>
+  <data name="Lbl_DownloadInfo" xml:space="preserve">
+    <value>Dosya Aktarılıyor</value>
+  </data>
+  <data name="Lbl_Find" xml:space="preserve">
+    <value>0 Dosya bulundu.</value>
+  </data>
+  <data name="Lbl_Marka" xml:space="preserve">
+    <value>Marka:</value>
+  </data>
+  <data name="Lbl_SBoyut" xml:space="preserve">
+    <value>Sıkıştırılmış Boyut:</value>
+  </data>
+  <data name="Lbl_ToplamBoyut" xml:space="preserve">
+    <value>Toplam Boyut:</value>
+  </data>
+  <data name="Lbl_Type" xml:space="preserve">
+    <value>Kod:</value>
+  </data>
+  <data name="msg1_DosyaAktarim" xml:space="preserve">
+    <value>Dosya aktarımı tamamlandı.</value>
+  </data>
+  <data name="msg1_DosyaAktarim_Baslik" xml:space="preserve">
+    <value>Başarılı</value>
+  </data>
+  <data name="msg2_DosyaAktarim" xml:space="preserve">
+    <value>dosyası bulunamadı.</value>
+  </data>
+  <data name="msg2_DosyaAktarim_Baslik" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="msgMarka" xml:space="preserve">
+    <value>Lütfen marka bilgisi girin.</value>
+  </data>
 </root>

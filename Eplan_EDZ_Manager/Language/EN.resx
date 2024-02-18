@@ -117,13 +117,61 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>184, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
-  </metadata>
+  <data name="Btn_EdzExport" xml:space="preserve">
+    <value>Export (.edz)</value>
+  </data>
+  <data name="Btn_Listele" xml:space="preserve">
+    <value>List</value>
+  </data>
+  <data name="Btn_SourceFile" xml:space="preserve">
+    <value>Import (.edz)</value>
+  </data>
+  <data name="DosyaBulundu" xml:space="preserve">
+    <value>File found.</value>
+  </data>
+  <data name="gBox_export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="gBox_import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="Klasör" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Lbl_DownloadInfo" xml:space="preserve">
+    <value>Transferring File</value>
+  </data>
+  <data name="Lbl_Find" xml:space="preserve">
+    <value>0 Files found.</value>
+  </data>
+  <data name="Lbl_Marka" xml:space="preserve">
+    <value>Brand:</value>
+  </data>
+  <data name="Lbl_SBoyut" xml:space="preserve">
+    <value>Compressed Size:</value>
+  </data>
+  <data name="Lbl_ToplamBoyut" xml:space="preserve">
+    <value>Total Size:</value>
+  </data>
+  <data name="Lbl_Type" xml:space="preserve">
+    <value>Code:</value>
+  </data>
+  <data name="msg1_DosyaAktarim" xml:space="preserve">
+    <value>File transfer completed.</value>
+  </data>
+  <data name="msg1_DosyaAktarim_Baslik" xml:space="preserve">
+    <value>Successful</value>
+  </data>
+  <data name="msg2_DosyaAktarim" xml:space="preserve">
+    <value>file could not be found.</value>
+  </data>
+  <data name="msg2_DosyaAktarim_Baslik" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="msgMarka" xml:space="preserve">
+    <value>Please enter brand information.</value>
+  </data>
 </root>
