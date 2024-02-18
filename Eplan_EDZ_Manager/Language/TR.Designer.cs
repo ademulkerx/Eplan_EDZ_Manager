@@ -230,5 +230,14 @@ namespace Eplan_EDZ_Manager.Language {
                 return ResourceManager.GetString("msgMarka", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Program zaten çalışıyor...!.
+        /// </summary>
+        public static string ProgramControl {
+            get {
+                return ResourceManager.GetString("ProgramControl", resourceCulture);
+            }
+        }
     }
 }

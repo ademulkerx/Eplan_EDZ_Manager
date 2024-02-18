@@ -174,4 +174,7 @@
   <data name="msgMarka" xml:space="preserve">
     <value>الرجاء إدخال معلومات العلامة التجارية.</value>
   </data>
+  <data name="ProgramControl" xml:space="preserve">
+    <value>البرنامج يعمل بالفعل...!</value>
+  </data>
 </root>

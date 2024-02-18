@@ -174,4 +174,7 @@
   <data name="msgMarka" xml:space="preserve">
     <value>请输入品牌信息。</value>
   </data>
+  <data name="ProgramControl" xml:space="preserve">
+    <value>程序已经在运行中...!</value>
+  </data>
 </root>

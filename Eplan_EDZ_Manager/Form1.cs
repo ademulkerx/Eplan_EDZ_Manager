@@ -216,9 +216,21 @@ namespace Eplan_EDZ_Manager
 
         #endregion
 
-
+        public bool form_is_open;
+        public void Form_Control()
+        {
+            Mutex mutex = new Mutex(true, "Form1_Load", out form_is_open);//Formun tekrar açılmasını önler 
+            if (form_is_open == false)
+            {
+                MessageBox.Show(LanguageConvert("ProgramControl"));
+                this.Close();
+                return;
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            Form_Control();         //Formun tekrar açılmasını önler
             string userLanguage = Properties.Settings.Default.Language;
             //string userLanguagde = TR.Btn_EdzExport;
 

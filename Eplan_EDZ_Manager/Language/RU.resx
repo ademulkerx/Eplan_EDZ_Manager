@@ -174,4 +174,7 @@
   <data name="msgMarka" xml:space="preserve">
     <value>Пожалуйста, введите информацию о марке.</value>
   </data>
+  <data name="ProgramControl" xml:space="preserve">
+    <value>Программа уже работает...!</value>
+  </data>
 </root>
