@@ -276,7 +276,10 @@ namespace Eplan_EDZ_Manager
                 var brand = textBox1.Text.Trim();
                 var type = textBox2.Text.Trim();
 
-                
+                Klasör = 0;
+                Dosya = 0;
+
+
 
                 if (!string.IsNullOrWhiteSpace(brand))
                 {
