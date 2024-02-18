@@ -217,25 +217,33 @@ namespace Eplan_EDZ_Manager
         #endregion
 
         public bool form_is_open;
+        private static Mutex mutex = null;
+
         public void Form_Control()
         {
-            Mutex mutex = new Mutex(true, "Form1_Load", out form_is_open);//Formun tekrar açılmasını önler 
-            if (form_is_open == false)
+            const string mutexName = "Eplan_EDZ_Manager";
+            bool createdNew;
+
+            mutex = new Mutex(true, mutexName, out createdNew);
+            if (!createdNew)
             {
-                MessageBox.Show(LanguageConvert("ProgramControl"));
-                this.Close();
+                // Uygulama zaten çalışıyor.
+                MessageBox.Show(LanguageConvert("ProgramControl"), LanguageConvert("msg2_DosyaAktarim_Baslik"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Application.Exit();
                 return;
             }
+
+            // Uygulama devam ediyor, burada diğer başlangıç kodlarınız olabilir.
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            Form_Control();         //Formun tekrar açılmasını önler
             string userLanguage = Properties.Settings.Default.Language;
-            //string userLanguagde = TR.Btn_EdzExport;
 
             comboBoxLanguages.SelectedItem = userLanguage;
             UpdateUI(userLanguage);
+            Form_Control();         //Formun tekrar açılmasını önler
         }
 
         private Dictionary<string, List<string>> SearchFilesByBrandAndType(string brand, string type)
