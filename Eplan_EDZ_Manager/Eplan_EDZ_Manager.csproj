@@ -35,6 +35,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Eplan_Edz_Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -141,6 +144,8 @@
   <ItemGroup>
     <None Include="bin\Debug\Data\Gif\loading_symbol.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Eplan_Edz_Logo.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

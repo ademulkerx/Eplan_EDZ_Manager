@@ -122,6 +122,7 @@
   </data>
   <data name="Btn_Listele" xml:space="preserve">
     <value>列表</value>
+    <comment>Buton listele Olayı</comment>
   </data>
   <data name="Btn_SourceFile" xml:space="preserve">
     <value>导入 (.edz)</value>
