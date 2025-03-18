@@ -1,0 +1,1 @@
+Bu program ile EPLAN dosyalarınızı hızlıca kontrol edebilir, EDZ dosyalarını EPLAN'a yüklemeden önce inceleyebilirsiniz. Böylece, EPLAN'ın yavaşlamasını önleyip yalnızca gerekli dosyaların ayıklanmasını sağlayabilirsiniz.
